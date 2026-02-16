@@ -20,12 +20,7 @@ export default function Navbar() {
           <Link href="/contact" className="hover:text-white transition">
             Contact
           </Link>
-          <Link
-            href="/admin/login"
-            className="bg-violet-600 px-4 py-2 rounded-lg text-white hover:bg-violet-500 transition"
-          >
-            Admin
-          </Link>
+
         </nav>
 
       </Container>

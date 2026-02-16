@@ -1,21 +1,74 @@
+"use client";
+
+import Container from "@/components/ui/Container";
+import Reveal from "@/components/animations/Reveal";
+import Button from "@/components/ui/Button";
+
+type WebDemoContent = {
+  title: string;
+  description: string;
+  demoUrl: string;
+};
+
 export default function WebDemoPage() {
+  const content: WebDemoContent = {
+    title: "Explore Web Platform Demo",
+    description:
+      "Experience the live version of the web application. Browse products, test flows and see how customers interact with your business.",
+    demoUrl: "https://www.giftify.am/",
+  };
+
   return (
-    <div className="container-custom mt-16">
-      <h2 className="text-3xl font-bold mb-8">Web Demo</h2>
+    <section className="py-28 border-t border-white/10">
+      <Container>
 
-      <div className="card text-center">
-        <p className="mb-4 text-gray-400">
-          Click below to explore live demo:
-        </p>
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              {content.title}
+            </h1>
 
-        <a
-          href="https://www.giftify.am/"
-          target="_blank"
-          className="bg-purple-600 px-6 py-3 rounded-xl"
-        >
-          Open Web Demo
-        </a>
-      </div>
-    </div>
+            <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+              {content.description}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <div className="mt-16 max-w-3xl mx-auto">
+
+            <div className="relative bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-10 flex flex-col min-h-[320px] transition hover:border-violet-500/40">
+
+              {/* ICON */}
+              <div className="text-5xl mb-6 text-violet-400 text-center">
+                🌐
+              </div>
+
+              {/* CONTENT */}
+              <div className="flex-grow text-center">
+                <h3 className="text-xl font-semibold mb-4">
+                  Live Web Application
+                </h3>
+
+                <p className="text-slate-400">
+                  Fully responsive customer-facing platform with
+                  optimized UX, fast performance and modern design.
+                </p>
+              </div>
+
+              {/* BUTTON */}
+              <div className="mt-10 text-center">
+                <Button href={content.demoUrl}>
+                  Open Web Demo
+                </Button>
+              </div>
+
+            </div>
+
+          </div>
+        </Reveal>
+
+      </Container>
+    </section>
   );
 }

@@ -1,21 +1,24 @@
 import Container from "../ui/Container";
-import Button from "../ui/Button";
 
-export type HeroContent = {
+type HeroContent = {
   titleLine1: string;
   titleHighlight: string;
   description: string;
-  primaryButtonText: string;
-  primaryButtonLink: string;
-  secondaryButtonText: string;
-  secondaryButtonLink: string;
+  primaryButton: {
+    label: string;
+    href: string;
+  };
+  secondaryButton: {
+    label: string;
+    href: string;
+  };
 };
 
-export default function Hero({
-  content,
-}: {
+type Props = {
   content: HeroContent;
-}) {
+};
+
+export default function Hero({ content }: Props) {
   return (
     <section className="relative overflow-hidden pt-32 pb-40 text-center">
       <div className="absolute inset-0 bg-gradient-to-tr from-violet-700/20 via-indigo-600/10 to-transparent blur-3xl" />
@@ -33,13 +36,19 @@ export default function Hero({
         </p>
 
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <Button href={content.primaryButtonLink}>
-            {content.primaryButtonText}
-          </Button>
+          <a
+            href={content.primaryButton.href}
+            className="bg-violet-600 hover:bg-violet-500 transition px-6 py-3 rounded-xl text-white font-medium"
+          >
+            {content.primaryButton.label}
+          </a>
 
-          <Button href={content.secondaryButtonLink} variant="outline">
-            {content.secondaryButtonText}
-          </Button>
+          <a
+            href={content.secondaryButton.href}
+            className="border border-white/20 hover:border-white/40 transition px-6 py-3 rounded-xl"
+          >
+            {content.secondaryButton.label}
+          </a>
         </div>
       </Container>
     </section>
