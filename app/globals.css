@@ -4,3 +4,22 @@ html, body {
   background-color: #0b1120;
   color: white;
 }
+@keyframes floatSlow {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-40px) translateX(30px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes floatSlower {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(50px) translateX(-40px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 18s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: floatSlower 25s ease-in-out infinite;
+}

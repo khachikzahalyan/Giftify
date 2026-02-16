@@ -1,8 +1,30 @@
 import Hero from "@/components/marketing/Hero";
 import Features from "@/components/marketing/Features";
 import WhySection from "@/components/marketing/WhySection";
+import Metrics from "@/components/marketing/Metrics";
 
 export default function HomePage() {
+  const metricsData = [
+  {
+    id: "1",
+    value: 120,
+    suffix: "+",
+    label: "Businesses Using Platform",
+  },
+  {
+    id: "2",
+    value: 7,
+    suffix: " Days",
+    label: "Production Ready",
+  },
+  {
+    id: "3",
+    value: 2,
+    suffix: "x",
+    label: "Conversion Growth",
+  },
+];
+
   const heroData = {
     titleLine1: "Complete Digital",
     titleHighlight: "Business Platform",
@@ -53,6 +75,7 @@ export default function HomePage() {
         subtitle={featuresData.subtitle}
         items={featuresData.items}
       />
+      <Metrics items={metricsData} />
 
       <WhySection />
     </>
