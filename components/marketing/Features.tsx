@@ -4,10 +4,11 @@ import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Card from "../ui/Card";
 import Reveal from "../animations/Reveal";
+import { ReactNode } from "react";
 
 type Feature = {
   id: string;
-  icon: string;
+  icon: ReactNode;
   title: string;
   description: string;
 };

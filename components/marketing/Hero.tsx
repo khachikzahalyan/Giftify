@@ -1,4 +1,7 @@
+"use client";
+
 import Container from "../ui/Container";
+import Button from "../ui/Button";
 
 type HeroContent = {
   titleLine1: string;
@@ -14,43 +17,37 @@ type HeroContent = {
   };
 };
 
-type Props = {
-  content: HeroContent;
-};
-
-export default function Hero({ content }: Props) {
+export default function Hero({ content }: { content: HeroContent }) {
   return (
-    <section className="relative overflow-hidden pt-32 pb-40 text-center">
-      <div className="absolute inset-0 bg-gradient-to-tr from-violet-700/20 via-indigo-600/10 to-transparent blur-3xl" />
+<section className="relative overflow-hidden min-h-[95vh] flex items-center justify-center text-center">
 
-      <Container className="relative">
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">
-          {content.titleLine1} <br />
-          <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
-            {content.titleHighlight}
-          </span>
-        </h1>
+  <div className="absolute inset-0 bg-gradient-to-tr from-violet-700/20 via-indigo-600/10 to-transparent blur-3xl" />
 
-        <p className="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
-          {content.description}
-        </p>
+  <Container className="relative">
 
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <a
-            href={content.primaryButton.href}
-            className="bg-violet-600 hover:bg-violet-500 transition px-6 py-3 rounded-xl text-white font-medium"
-          >
-            {content.primaryButton.label}
-          </a>
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+      {content.titleLine1} <br />
+      <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+        {content.titleHighlight}
+      </span>
+    </h1>
 
-          <a
-            href={content.secondaryButton.href}
-            className="border border-white/20 hover:border-white/40 transition px-6 py-3 rounded-xl"
-          >
-            {content.secondaryButton.label}
-          </a>
-        </div>
-      </Container>
-    </section>
+    <p className="mt-8 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+      {content.description}
+    </p>
+
+    <div className="mt-12 flex justify-center gap-6 flex-wrap">
+      <Button href={content.primaryButton.href}>
+        {content.primaryButton.label}
+      </Button>
+
+      <Button href={content.secondaryButton.href} variant="outline">
+        {content.secondaryButton.label}
+      </Button>
+    </div>
+
+  </Container>
+</section>
+
   );
 }
