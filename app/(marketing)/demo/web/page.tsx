@@ -3,6 +3,7 @@
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/animations/Reveal";
 import Button from "@/components/ui/Button";
+import { IconWeb } from "@/components/icons/IconWeb";
 
 type WebDemoContent = {
   title: string;
@@ -40,9 +41,11 @@ export default function WebDemoPage() {
             <div className="relative bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-10 flex flex-col min-h-[320px] transition hover:border-violet-500/40">
 
               {/* ICON */}
-              <div className="text-5xl mb-6 text-violet-400 text-center">
-                🌐
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-violet-600/10 border border-violet-500/20 text-violet-400">
+                <IconWeb className="w-7 h-7" />
               </div>
+            </div>
 
               {/* CONTENT */}
               <div className="flex-grow text-center">

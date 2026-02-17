@@ -2,6 +2,7 @@
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/animations/Reveal";
 import Button from "@/components/ui/Button";
+import { IconMail } from "@/components/icons/IconMail";
 
 type ContactContent = {
   title: string;
@@ -40,9 +41,10 @@ export default function ContactPage() {
 
             <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-10 flex flex-col min-h-[300px] transition hover:border-violet-500/40">
 
-              <div className="text-5xl text-center text-indigo-400 mb-6">
-                ✉️
-              </div>
+<div className="flex justify-center mb-6">
+  <IconMail className="w-14 h-14 text-indigo-400" />
+</div>
+
 
               <div className="flex-grow text-center">
                 <h3 className="text-xl font-semibold mb-4">

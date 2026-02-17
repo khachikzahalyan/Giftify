@@ -1,20 +1,35 @@
-export function IconWeb() {
+import { SVGProps } from "react";
+
+export function IconWeb(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width="40"
-      height="40"
-      viewBox="0 0 24 24"
+      viewBox="0 0 48 48"
       fill="none"
-      className="text-violet-400"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18" />
-      <path d="M12 3c3 3 3 15 0 18" />
-      <path d="M12 3c-3 3-3 15 0 18" />
+      <circle
+        cx="24"
+        cy="24"
+        r="20"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M4 24H44"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M24 4C30 12 30 36 24 44"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M24 4C18 12 18 36 24 44"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
     </svg>
   );
 }

@@ -39,9 +39,9 @@ const whyData: WhyItem[] = [
     icon: <IconBolt />,
     title: "Faster Growth",
     description:
-      "Launch quickly and scale without technical complexity.",
+      "Built with modern scalable architecture, the platform grows with your business without constant redevelopment.",
     more:
-      "Built with modern scalable architecture, the platform grows with your business without requiring constant redevelopment or restructuring.",
+      "Scale confidently with enterprise-ready infrastructure designed for performance, security and long-term expansion.",
   },
 ];
 
@@ -49,9 +49,8 @@ export default function WhySection() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="relative py-32">
+    <section className="py-32">
       <Container>
-
         <Reveal>
           <SectionTitle
             title="Why This Platform Matters"
@@ -59,64 +58,78 @@ export default function WhySection() {
           />
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-10 mt-20 items-stretch">
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
 
           {whyData.map((item, index) => {
             const isOpen = openId === item.id;
 
             return (
               <Reveal key={item.id} delay={index * 0.1}>
-                <motion.div
-                  layout
-                  transition={{ duration: 0.4 }}
-                  className="relative flex flex-col h-full p-8 rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur hover:border-violet-500/40 hover:bg-slate-900/60 transition duration-300"
-                >
-                  {/* ICON */}
-                  <div className="mb-6 text-violet-400">
-                    {item.icon}
-                  </div>
+                <div className="relative h-[380px] rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur overflow-hidden">
 
-                  {/* TITLE */}
-                  <h4 className="text-lg font-semibold mb-4">
-                    {item.title}
-                  </h4>
+                  {/* NORMAL CONTENT */}
+                  <motion.div
+                    animate={{ opacity: isOpen ? 0 : 1 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute inset-0 p-8 flex flex-col"
+                  >
+                    <div className="mb-6 text-violet-400">
+                      {item.icon}
+                    </div>
 
-                  {/* DESCRIPTION */}
-                  <p className="text-slate-400 leading-relaxed">
-                    {item.description}
-                  </p>
+                    <h4 className="text-lg font-semibold mb-4">
+                      {item.title}
+                    </h4>
 
-                  {/* EXPANDABLE TEXT */}
+                    <p className="text-slate-400 leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    <div className="flex-grow" />
+
+                    <button
+                      onClick={() => setOpenId(item.id)}
+                      className="mt-8 text-sm font-medium text-violet-400 hover:text-violet-300 transition"
+                    >
+                      More
+                    </button>
+                  </motion.div>
+
+                  {/* EXPANDED OVERLAY */}
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 40 }}
                         transition={{ duration: 0.35 }}
-                        className="overflow-hidden"
+                        className="absolute inset-0 p-8 flex flex-col bg-slate-950/95"
                       >
-                        <p className="mt-6 text-slate-400 leading-relaxed">
+                        <div className="mb-6 text-violet-400">
+                          {item.icon}
+                        </div>
+
+                        <h4 className="text-lg font-semibold mb-4">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-slate-400 leading-relaxed">
                           {item.more}
                         </p>
+
+                        <div className="flex-grow" />
+
+                        <button
+                          onClick={() => setOpenId(null)}
+                          className="mt-8 text-sm font-medium text-violet-400 hover:text-violet-300 transition"
+                        >
+                          Less
+                        </button>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
-                  {/* SPACER */}
-                  <div className="flex-grow" />
-
-                  {/* BUTTON */}
-                  <button
-                    onClick={() =>
-                      setOpenId(isOpen ? null : item.id)
-                    }
-                    className="mt-8 text-sm font-medium text-violet-400 hover:text-violet-300 transition"
-                  >
-                    {isOpen ? "Less" : "More"}
-                  </button>
-
-                </motion.div>
+                </div>
               </Reveal>
             );
           })}
