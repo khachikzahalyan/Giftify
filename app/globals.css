@@ -3,7 +3,9 @@
 html, body {
   background-color: #0b1120;
   color: white;
+  scrollbar-gutter: stable;
 }
+
 @keyframes floatSlow {
   0% { transform: translateY(0px) translateX(0px); }
   50% { transform: translateY(-40px) translateX(30px); }
@@ -23,13 +25,10 @@ html, body {
 .animate-float-slower {
   animation: floatSlower 25s ease-in-out infinite;
 }
+
 @keyframes waveSlow {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-25%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
 }
 
 .animate-waveSlow {
@@ -51,5 +50,6 @@ html, body {
   );
   background-size: 200% 200%;
   animation: gradientFlow 8s ease infinite;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

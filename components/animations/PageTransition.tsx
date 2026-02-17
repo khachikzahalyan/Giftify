@@ -12,13 +12,8 @@ export default function PageTransition({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        transition={{
-          duration: 0.4,
-          ease: "easeInOut",
-        }}
-      >
+    <motion.div className="min-h-screen" key={pathname}>
+
         {children}
       </motion.div>
     </AnimatePresence>
